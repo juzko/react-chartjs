@@ -12,29 +12,33 @@ if (process.env.COMPRESS) {
 }
 
 module.exports = {
-
+    entry: {
+       "dist/react-chartjs": "./index.js",
+       "demo/demo": "./demo.js"
+    },
     output: {
-        library: 'react-chartjs',
-        libraryTarget: 'umd'
+        filename: process.env.COMPRESS ? '[name].min.js' : '[name].js',
+        chunkFilename: '[id].js'
+    },
+
+    module: {
+        loaders: [
+            {
+                test: /\.jsx?$/,
+                exclude: /(node_modules|bower_components)/,
+                loader: 'babel-loader'
+            }
+        ]
     },
 
     externals: [
         {
-            "react": {
-                root: "React",
-                commonjs2: "react",
-                commonjs: "react",
-                amd: "react"
-            },
-            "chart.js": {
-                root: "Chartjs",
-                commonjs2: "Chartjs",
-                commonjs: "Chartjs",
-                amd: "Chartjs"
-            }
+            'react/addons': 'React',
+            'react': 'React',
+            'chart.js': 'Chart.js',
+            'Chartjs': 'Chart.js'
         }
     ],
-
     node: {
         Buffer: false
     },

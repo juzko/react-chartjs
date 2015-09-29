@@ -32,3 +32,7 @@ showcase
 .generator-release
 
 .idea/*
+*.swp
+
+demo/demo.js
+demo/demo.min.js

@@ -12,6 +12,13 @@ rich interactive react charting components using [chart.js](http://www.chartjs.o
 
 [view chart examples](http://jhudson8.github.io/react-chartjs/index.html)
 
+New in 2.0
+------------
+More chart types, also added demo.
+* `npm i gulp webpack -g`
+* `gulp`
+* In seperate terminal `webpack`
+* hit `localhost:4444`
 Installation
 ------------
 This is a CommonJS component only (to be used with something like Webpack or Browserify)
@@ -27,7 +34,7 @@ var LineChart = require("react-chartjs").Line;
 
 var MyComponent = React.createClass({
   render: function() {
-    return <LineChart data={chartData} options={chartOptions} width="600" height="250"/>
+    return <LineChart data={chartData} options={chartOptions} />
   }
 });
 ```
